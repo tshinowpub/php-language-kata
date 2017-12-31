@@ -1,0 +1,30 @@
+version: '2'
+
+services:
+    php-support-nginx:
+        container_name: php-support-nginx
+        image: php-support/nginx
+        build: ./nginx
+        ports:
+            - '80:80'
+        networks:
+            php-support:
+                ipv4_address: 10.0.0.10
+
+    php-support-phpfpm:
+        container_name: php-support-phpfpm
+        image: php-support/phpfpm
+        build: ./phpfpm
+        ports:
+            - '9000:9000'
+        networks:
+            php-support:
+                ipv4_address: 10.0.0.11
+
+networks:
+    php-support:
+        driver: bridge
+        ipam:
+            driver: default
+            config:
+                - subnet: 10.0.0.0/24
