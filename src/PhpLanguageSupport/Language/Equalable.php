@@ -12,7 +12,7 @@ interface Equalable
     /**
      * オブジェクトを比較する
      *
-     * @param Object
+     * @param mixed
      */
     public function equals($object): bool;
 
@@ -20,7 +20,7 @@ interface Equalable
      * オブジェクトのハッシュを返す
      * ※ EqualsがTrueを返す場合は同じ値を返さないといけない
      *
-     * @return string
+     * @return mixed
      */
     public function hashCode();
 }
